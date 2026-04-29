@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/PrakritiRaw/PomodoroForMe.git/static/css/main.52820a97.css",
+    "main.js": "/PrakritiRaw/PomodoroForMe.git/static/js/main.6568f0fc.js",
+    "index.html": "/PrakritiRaw/PomodoroForMe.git/index.html",
+    "main.52820a97.css.map": "/PrakritiRaw/PomodoroForMe.git/static/css/main.52820a97.css.map",
+    "main.6568f0fc.js.map": "/PrakritiRaw/PomodoroForMe.git/static/js/main.6568f0fc.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.52820a97.css",
+    "static/js/main.6568f0fc.js"
+  ]
+}
