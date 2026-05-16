@@ -31,6 +31,10 @@ function App() {
     startTimeRef.current = Date.now();
 
     const timer = setInterval(() => {
+      // Guard against a stray tick that lands after handleReset cleared startTimeRef
+      // but before the effect cleanup ran.
+      if (startTimeRef.current === null) return;
+
       // How many seconds have passed in the real world?
       const elapsed = Math.floor((Date.now() - startTimeRef.current) / 1000);
 
@@ -38,8 +42,9 @@ function App() {
       const newTimeLeft = remainingRef.current - elapsed;
 
       if (newTimeLeft <= 0) {
-        // Timer finished!
-        clearInterval(timer);
+        // Phase finished — roll over into the next phase. The interval keeps
+        // ticking; we just reset the "start" reference and remaining budget so
+        // the next tick computes elapsed from this moment.
         playTing();
 
         if (phaseRef.current === 'focus') {

@@ -21,7 +21,6 @@ function ButtonGroup({ isRunning, onStart, onPause, onReset }) {
       <button
         className="btn btn-reset"
         onClick={onReset}
-        disabled={!isRunning}
       >
         Reset
       </button>

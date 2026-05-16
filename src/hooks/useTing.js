@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useRef, useCallback } from 'react';
 
 function useTing() {
 
@@ -7,7 +7,9 @@ function useTing() {
   // Perfect for storing the AudioContext — we don't want a re-render when it's created
   const audioCtxRef = useRef(null);
 
-  const playTing = () => {
+  // useCallback gives a stable function reference across renders, so consumers
+  // can safely list playTing in useEffect dependency arrays without retriggering.
+  const playTing = useCallback(() => {
 
     // Create the AudioContext only once, the first time playTing is called
     // (browsers require a user interaction before allowing sound — this handles that)
@@ -49,7 +51,7 @@ function useTing() {
 
     oscillator2.start(ctx.currentTime);
     oscillator2.stop(ctx.currentTime + 1.0);
-  };
+  }, []);
 
   // Return the function so any component can call it
   return { playTing };
