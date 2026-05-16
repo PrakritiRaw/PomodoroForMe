@@ -3,7 +3,7 @@ function SessionCounter({ sessions }) {
   // Create an array of length `sessions` and map each to a tomato emoji
   // e.g. sessions=3 → ['🍅','🍅','🍅']
   const tomatoes = Array.from({ length: sessions }, (_, i) => (
-    <span key={i} className="tomato">🍅</span>
+    <span key={`session-${i + 1}`} className="tomato">🍅</span>
   ));
 
   return (

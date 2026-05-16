@@ -61,7 +61,7 @@ function App() {
     }, 1000);
 
     return () => clearInterval(timer);
-  }, [isRunning]);  // only re-run when isRunning changes
+  }, [isRunning, playTing]);
 
   const handleStart = () => {
     // Save how much time is left right now before starting
