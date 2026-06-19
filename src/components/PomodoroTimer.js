@@ -4,14 +4,14 @@ import ButtonGroup from './ButtonGroup';
 import ProgressRing from './ProgressRing';
 import SessionCounter from './SessionCounter';
 
-function PomodoroTimer({ timeDisplay, timeLeft, phase, isRunning, sessions, onStart, onPause, onReset }) {
+function PomodoroTimer({ timeDisplay, timeLeft, totalDuration, phase, isRunning, sessions, onStart, onPause, onReset }) {
   return (
     <div className="app">
 
       <h1 className="title">Pomodoro Timer</h1>
 
       <div className="ring-wrapper">
-        <ProgressRing timeLeft={timeLeft} phase={phase} />
+        <ProgressRing timeLeft={timeLeft} totalDuration={totalDuration} phase={phase} />
         <div className="ring-inner">
           <PhaseLabel phase={phase} />
           <TimerDisplay
