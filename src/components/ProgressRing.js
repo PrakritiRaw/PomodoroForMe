@@ -6,10 +6,7 @@ const STROKE = 6;        // how thick the ring line is
 const RADIUS = (SIZE / 2) - (STROKE * 2);  // radius of the circle
 const CIRCUMFERENCE = 2 * Math.PI * RADIUS; // total length of the circle's edge
 
-function ProgressRing({ timeLeft, phase }) {
-
-  // Total duration depends on which phase we're in
-  const totalDuration = phase === 'focus' ? 25 * 60 : 5 * 60;
+function ProgressRing({ timeLeft, totalDuration, phase }) {
 
   // useMemo recalculates offset only when timeLeft or phase changes
   const offset = useMemo(() => {
