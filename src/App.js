@@ -2,7 +2,6 @@ import { useState, useEffect, useRef } from 'react';
 import './App.css';
 import PomodoroTimer from './components/PomodoroTimer';
 import useTing from './hooks/useTing';
-import useBreakAudio from './hooks/useBreakAudio';
 
 const FOCUS_DURATION = 25 * 60;
 const BREAK_DURATION = 5 * 60;
@@ -14,7 +13,6 @@ function App() {
   const [sessions, setSessions] = useState(0);
 
   const { playTing } = useTing();
-  useBreakAudio(phase, timeLeft, isRunning);
 
   // useRef to store values that shouldn't trigger re-renders
   const startTimeRef = useRef(null);      // when did the current session start?
@@ -105,7 +103,6 @@ function App() {
     <PomodoroTimer
       timeDisplay={formatTime(timeLeft)}
       timeLeft={timeLeft}
-      totalDuration={phase === 'focus' ? FOCUS_DURATION : BREAK_DURATION}
       phase={phase}
       isRunning={isRunning}
       sessions={sessions}
